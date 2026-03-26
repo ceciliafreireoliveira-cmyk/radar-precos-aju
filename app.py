@@ -25,5 +25,6 @@ except:
     st.info("Aguardando primeira coleta de dados do robô...")
 
 # RODAPÉ LEGAL
+# NOVO RODAPÉ NEUTRO
 st.markdown("---")
-st.caption("© 2026 Radar de Preços Aju - Uso Informativo - Polícia Civil/Sindicato SE")
+st.caption("© 2026 Radar de Preços Aju - Plataforma Independente de Utilidade Pública")
