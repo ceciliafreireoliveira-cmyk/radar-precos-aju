@@ -1,0 +1,22 @@
+name: Atualizar Radar Aju
+on:
+  schedule:
+    - cron: '0 11 * * *' # 08h00 em Aracaju
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+      - run: |
+          pip install -r requirements.txt
+          playwright install chromium
+          python scraper_oficial.py
+          git config --global user.name 'RadarBot'
+          git config --global user.email 'bot@radar.com'
+          git add dados_precos.csv
+          git commit -m "Update" || exit 0
+          git push
